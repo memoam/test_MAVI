@@ -3,12 +3,12 @@ import cors from 'cors';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import pkg from '../package.json';
+// Routes
+import authRoutes from './routes/auth.routes.js';
+import dataRoutes from './routes/data.routes';
 
 
 const app = express();
-// Routes
-
-
 
 
 // Settings
@@ -33,4 +33,7 @@ app.get('/', (req, res) => {
     author,
   });
 });
+app.use('/api/auth', authRoutes);
+app.use('/api/data', dataRoutes);
+
 export default app;
